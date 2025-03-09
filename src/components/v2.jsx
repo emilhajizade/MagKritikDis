@@ -244,7 +244,7 @@ export default function V2() {
         }}
       >
         <button
-          style={{ marginRight: "30px", padding: "10px" ,height:"42px",cursor:"pointer"}}
+          style={{ marginRight: "20px", padding: "10px" ,height:"42px",cursor:"pointer" ,marginBottom:"10px"}}
           onClick={() =>
             setOrientation(
               orientation === "vertical" ? "horizontal" : "vertical"
@@ -255,7 +255,7 @@ export default function V2() {
         </button>
 
         <select
-          style={{ padding: "10px", marginRight: "30px", height:"42px",cursor:"pointer" }}
+          style={{ padding: "10px", marginRight: "20px", height:"42px",cursor:"pointer" ,marginBottom:"10px" }}
           onChange={(e) => setPathFunc(e.target.value)}
           value={pathFunc}
         >
@@ -264,7 +264,7 @@ export default function V2() {
           <option value="straight">Maili</option>
         </select>
         <button
-          style={{ marginRight: "30px", padding: "10px" ,height:"42px",cursor:"pointer"}}
+          style={{ marginRight: "20px", padding: "10px" ,height:"42px",cursor:"pointer" ,marginBottom:"10px"}}
           onClick={() => window.location.reload()}
         >
           Yenilə
