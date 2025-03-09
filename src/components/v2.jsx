@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Tree from "react-d3-tree";
 
 const initialTreeData = {
@@ -10,15 +10,43 @@ const initialTreeData = {
         {
           name: "Elektrik Şəbəkəsi",
           children: [
-            { name: "Yüksək Gərginlik Xətləri" },
-            { name: "Dağıtım Şəbəkələri" },
+            {
+              name: "Yüksək Gərginlik Xətləri",
+              children: [
+                { name: "500 kV Xətləri" },
+                { name: "220 kV Xətləri" },
+                { name: "110 kV Xətləri" },
+              ],
+            },
+            {
+              name: "Dağıtım Şəbəkələri",
+              children: [
+                { name: "Şəhər Dağıtım Xətləri" },
+                { name: "Kənd Dağıtım Xətləri" },
+                { name: "Transformator Stansiyaları" },
+              ],
+            },
           ],
         },
         {
           name: "Neft və Qaz Infrastruktur",
           children: [
-            { name: "Boru Kəmərləri" },
-            { name: "Emal Zavodları" },
+            {
+              name: "Boru Kəmərləri",
+              children: [
+                { name: "Xam Neft Kəmərləri" },
+                { name: "Təmizlənmiş Yanacaq Kəmərləri" },
+                { name: "Qaz Dağıtım Şəbəkəsi" },
+              ],
+            },
+            {
+              name: "Emal Zavodları",
+              children: [
+                { name: "Xam Neft Emalı Zavodu" },
+                { name: "Kimyəvi Emal Zavodu" },
+                { name: "Maye Qaz Emal Zavodu" },
+              ],
+            },
           ],
         },
       ],
@@ -29,15 +57,43 @@ const initialTreeData = {
         {
           name: "Banklar",
           children: [
-            { name: "Mərkəzi Bank" },
-            { name: "Kommersiya Bankları" },
+            {
+              name: "Mərkəzi Bank",
+              children: [
+                { name: "Pul Emissiya Departamenti" },
+                { name: "Maliyyə Nəzarət Bölməsi" },
+                { name: "Dövlət Ehtiyatları Departamenti" },
+              ],
+            },
+            {
+              name: "Kommersiya Bankları",
+              children: [
+                { name: "Milli Banklar" },
+                { name: "Beynəlxalq Banklar" },
+                { name: "Onlayn Bankçılıq Xidmətləri" },
+              ],
+            },
           ],
         },
         {
           name: "Ödəniş Sistemləri",
           children: [
-            { name: "Kart Şəbəkələri" },
-            { name: "Onlayn Ödəniş Xidmətləri" },
+            {
+              name: "Kart Şəbəkələri",
+              children: [
+                { name: "VISA" },
+                { name: "MasterCard" },
+                { name: "Milli Kart Sistemləri" },
+              ],
+            },
+            {
+              name: "Onlayn Ödəniş Xidmətləri",
+              children: [
+                { name: "Mobil Ödəniş Sistemləri" },
+                { name: "Elektron Pul Cüzdanları" },
+                { name: "Kripto Ödəniş Platformaları" },
+              ],
+            },
           ],
         },
       ],
@@ -48,15 +104,43 @@ const initialTreeData = {
         {
           name: "Hava Yolları",
           children: [
-            { name: "Hava Limanları" },
-            { name: "Aviasiya Nəzarət Mərkəzləri" },
+            {
+              name: "Hava Limanları",
+              children: [
+                { name: "Beynəlxalq Hava Limanları" },
+                { name: "Daxili Hava Limanları" },
+                { name: "Yük Terminalı Xidmətləri" },
+              ],
+            },
+            {
+              name: "Aviasiya Nəzarət Mərkəzləri",
+              children: [
+                { name: "Hava Hərəkəti Nəzarət Sistemi" },
+                { name: "Radar Müşahidə Mərkəzləri" },
+                { name: "Aviasiya Təhlükəsizlik Xidməti" },
+              ],
+            },
           ],
         },
         {
           name: "Dəmiryolu Sistemi",
           children: [
-            { name: "Mərkəzi Stansiyalar" },
-            { name: "Yük Daşıma Xətləri" },
+            {
+              name: "Mərkəzi Stansiyalar",
+              children: [
+                { name: "Sərnişin Stansiyaları" },
+                { name: "Yük Daşıma Stansiyaları" },
+                { name: "Logistika Mərkəzləri" },
+              ],
+            },
+            {
+              name: "Yük Daşıma Xətləri",
+              children: [
+                { name: "Sənaye Yük Xətləri" },
+                { name: "Beynəlxalq Yük Xətləri" },
+                { name: "Daxili Yük Xətləri" },
+              ],
+            },
           ],
         },
       ],
@@ -67,15 +151,43 @@ const initialTreeData = {
         {
           name: "Xəstəxanalar",
           children: [
-            { name: "Dövlət Xəstəxanaları" },
-            { name: "Özəl Xəstəxanalar" },
+            {
+              name: "Dövlət Xəstəxanaları",
+              children: [
+                { name: "Mərkəzi Klinika" },
+                { name: "İxtisaslaşmış Xəstəxanalar" },
+                { name: "Rayon Xəstəxanaları" },
+              ],
+            },
+            {
+              name: "Özəl Xəstəxanalar",
+              children: [
+                { name: "Şəxsi Klinika Şəbəkələri" },
+                { name: "Mütəxəssis Tibb Mərkəzləri" },
+                { name: "Tibbi Tədqiqat Xəstəxanaları" },
+              ],
+            },
           ],
         },
         {
           name: "Təcili Yardım Xidməti",
           children: [
-            { name: "Təcili Tibbi Yardım" },
-            { name: "Xilasetmə Xidməti" },
+            {
+              name: "Təcili Tibbi Yardım",
+              children: [
+                { name: "Ambulans Xidmətləri" },
+                { name: "Helikopter Təcili Yardımı" },
+                { name: "Mobil Səhra Xəstəxanaları" },
+              ],
+            },
+            {
+              name: "Xilasetmə Xidməti",
+              children: [
+                { name: "Yanğınsöndürmə və Xilasetmə" },
+                { name: "Dağ-Xilasetmə Xidmətləri" },
+                { name: "Dəniz-Xilasetmə Xidmətləri" },
+              ],
+            },
           ],
         },
       ],
@@ -83,17 +195,30 @@ const initialTreeData = {
   ],
 };
 
-
 const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
-      <g onClick={toggleNode} style={{ cursor: "pointer" }}>
-      <rect width="180" height="40" x="-90" y="-20" fill={`${nodeDatum.__rd3t.collapsed && nodeDatum.children ? "gray": "green"}`} stroke="#000" rx="5" />
-      <text fill="black" x="0" y="5" textAnchor="middle" alignmentBaseline="middle" style={{ fontSize: "14px", fontWeight: "bold" }}>
-        {nodeDatum.name}
-        {console.log(nodeDatum)
-        }
-      </text>
-    </g>
-  
+  <g onClick={toggleNode} style={{ cursor: "pointer" }}>
+    <rect
+      width="200"
+      height="40"
+      x="-90"
+      y="-20"
+      fill={`${
+        nodeDatum.__rd3t.collapsed && nodeDatum.children ? "gray" : "green"
+      }`}
+      stroke="#000"
+      rx="5"
+    />
+    <text
+      fill="black"
+      x="0"
+      y="5"
+      textAnchor="middle"
+      alignmentBaseline="middle"
+      style={{ fontSize: "14px", fontWeight: "bold" }}
+    >
+      {nodeDatum.name}
+    </text>
+  </g>
 );
 
 export default function V2() {
@@ -106,17 +231,46 @@ export default function V2() {
   }, []);
 
   return (
-    <div style={{height: "100vh"}}>
-      <div style={{ position: "absolute", top: 10, left: 10, zIndex: 5 }}>
-        <button style={{marginRight:"30px"}} onClick={() => setOrientation(orientation === "vertical" ? "horizontal" : "vertical")}>Düzülüşü Dəyiş</button>
-        <select onChange={(e) => setPathFunc(e.target.value)} value={pathFunc}>
-          <option value="diagonal">Diagonal</option>
+    <div style={{ height: "100vh" }}>
+      <div
+        className="nav"
+        style={{
+          position: "absolute",
+          padding: "20px",
+          top: 0,
+          left: 0,
+          zIndex: 5,
+          width: "100%",
+        }}
+      >
+        <button
+          style={{ marginRight: "30px", padding: "10px" ,height:"42px",cursor:"pointer"}}
+          onClick={() =>
+            setOrientation(
+              orientation === "vertical" ? "horizontal" : "vertical"
+            )
+          }
+        >
+          Düzülüşü Dəyiş
+        </button>
+
+        <select
+          style={{ padding: "10px", marginRight: "30px", height:"42px",cursor:"pointer" }}
+          onChange={(e) => setPathFunc(e.target.value)}
+          value={pathFunc}
+        >
+          <option  value="diagonal">Diagonal</option>
           <option value="elbow">Düz</option>
           <option value="straight">Maili</option>
-         
         </select>
+        <button
+          style={{ marginRight: "30px", padding: "10px" ,height:"42px",cursor:"pointer"}}
+          onClick={() => window.location.reload()}
+        >
+          Yenilə
+        </button>
       </div>
-      
+
       <Tree
         data={initialTreeData}
         orientation={orientation}
